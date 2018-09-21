@@ -8,11 +8,17 @@
 
   tasks:
 
-    - name: CONTENTS OF FILE 1
-      debug:
-        var: file1
+    # - name: CONTENTS OF FILE 1
+    #   debug:
+    #     var: file1
 
 
-    - name: CONTENTS OF FILE 2
-      debug:
-        var: file2
+    # - name: CONTENTS OF FILE 2
+    #   debug:
+    #     var: file2
+
+    - name: DISPLAY THE CONTENTS OF THE FILE
+      command: echo $FILE1
+      register: output
+
+    - debug: var=output
