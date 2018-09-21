@@ -17,8 +17,14 @@
     #   debug:
     #     var: file2
 
-    - name: DISPLAY THE CONTENTS OF THE FILE
+    - name: DISPLAY THE NAME OF THE FILE
       command: echo $FILE1
       register: output
 
     - debug: var=output
+
+    - name: DISPLAY THE CONTENTS OF THE FILE
+      command: cat $FILE1
+      register: contents
+
+    - debug: var=contents
