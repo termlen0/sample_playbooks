@@ -12,7 +12,7 @@
       command: cat $FILE1
       register: contents_file1
 
-    - debug: var=contents_file2
+    - debug: var=contents_file1
 
     - name: DISPLAY THE CONTENTS OF  FILE 2
       command: cat $FILE2
