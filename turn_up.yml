@@ -1,0 +1,17 @@
+---
+- name: TURN UP INTERFACE
+  hosts: "{{ device }}"
+  connection: network_cli
+  gather_facts: no
+
+  tasks:
+
+    - debug:
+        msg: "{{ device }} int {{ intf }}"
+
+
+    - name: TURNING UP INTERFACE
+      ios_config:
+        parents: "interface {{ intf }}"
+        commands:
+          - no shut

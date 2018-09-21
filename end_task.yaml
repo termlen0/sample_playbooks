@@ -1,0 +1,14 @@
+---
+- name: TEST END TASK META
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+
+  tasks:
+
+    - name: debug
+      debug:
+
+    - name: INVOKE META
+      meta: "end_play"

@@ -1,0 +1,33 @@
+---
+
+- name: Lab1 - Create a node
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  vars:
+    rest:
+      server: "{{ ansible_host }}"
+      server_port: 8443
+      transport: rest
+      user: admin
+      password: ansible123
+      validate_certs: no
+
+  tasks:
+
+     - debug: var=ansible_host
+       tags: debug
+
+     - name: Create node using bigip_node module
+       bigip_node:
+          name: "ajay-test3"
+          address: 192.168.0.3
+          # user: admin
+          # password: ansible123
+          # server: 13.59.13.2
+          # server_port: 8443
+          # validate_certs: no
+          # transport: rest
+          provider: "{{ rest }}"
+       delegate_to: localhost

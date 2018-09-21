@@ -1,0 +1,19 @@
+- hosts: localhost
+  gather_facts: no
+  connection: local
+
+  vars:
+    list1:
+      - aa
+      - bb
+      - cc
+      - dd
+
+  tasks:
+
+    - command: "echo {{ item }}"
+      with_items: "{{ list1 }}"
+      register: "{{ item }}_variabl"
+
+    - debug:
+        var: hostvars[inventory_hostname]

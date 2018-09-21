@@ -1,0 +1,70 @@
+---
+- name: parser meta data
+  parser_metadata:
+    version: 1.0
+    command: show interface counters
+
+
+- name: match interface section
+  pattern_match:
+    regex: "^Ethernet.*"
+    match_all: yes
+    match_greedy: yes
+  register: section
+
+
+- name: match qos drops input
+  pattern_group:
+    - name: match interface
+      pattern_match:
+        regex: "^Ethernet(.*)"
+        content: "{{ item }}"
+      register: interface_id
+
+    - name: match service policy
+      pattern_match:
+        regex: "^.+Service-policy \\(queuing\\) input: (.*)"
+        content: "{{ item }}"
+      register: policy_input
+
+    - name: match class
+      pattern_match:
+        regex: "^.+Class-map \\(queuing\\): (.*) \\(match-any\\)"
+        content: "{{ item }}"
+      register: class
+
+    - name: match queue drop
+      pattern_match:
+        regex: ".* queue dropped pkts : (.*)"
+        content: "{{ item }}"
+      register: queue_drop
+
+    - name: match queue tx
+      pattern_match:
+        regex: ".* queue transmit pkts: (.*) queue"
+        content: "{{ item }}"
+      register: queue_tx
+
+  loop: "{{ section }}"
+  register: class_input
+
+- name: generate json data structure
+  json_template:
+    template:
+      - key:  device
+        object:
+        - key: config
+          object:
+            - key: interface_id
+              value: "{{ item.interface_id.matches.0 }}"
+            - key: policy_input
+              value: "{{ item.policy_input.matches.0 }}"
+            - key: class
+              value: "{{ item.class.matches.0 }}"
+            - key: queue_drop
+              value: "{{ item.queue_drop.matches.0 }}"
+            - key: queue_tx
+              value: "{{ item.queue_tx.matches.0 }}"
+  loop: "{{ class_input }}"
+  export: yes
+  register: service_policy_facts

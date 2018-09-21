@@ -1,0 +1,42 @@
+---
+- name: BACKUP THE CONFIGS
+  hosts: all
+  connection: network_cli
+  gather_facts: no
+  tags: backup
+
+  tasks:
+    - name: BACKUP THE CONFIG
+      ios_config:
+        backup: yes
+      register: config_output
+
+    - name: RENAME BACKUP
+      copy:
+        src: "{{config_output.backup_path}}"
+        dest: "./backup/{{inventory_hostname}}.config"
+
+    - name: REMOVE NON CONFIG LINES
+      lineinfile:
+        path: "./backup/{{inventory_hostname}}.config"
+        line: "Building configuration..."
+        state: absent
+
+    - name: REMOVE NON CONFIG LINES - REGEXP
+      lineinfile:
+        path: "./backup/{{inventory_hostname}}.config"
+        regexp: 'Current configuration.*'
+        state: absent
+
+
+- name: CONFIG REPLACE
+  hosts: all
+  connection: network_cli
+  gather_facts: no
+  tags: replace
+
+  roles:
+    - name: privateip.ios
+      function: load_config
+      config_file: "./backup/{{ inventory_hostname }}.config"
+      replace: yes

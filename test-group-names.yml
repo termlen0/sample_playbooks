@@ -1,0 +1,24 @@
+---
+
+- name: TEST WHEN STM
+  hosts: all
+  connection: local
+  gather_facts: no
+
+
+  vars:
+    rtr: routers
+
+  tasks:
+
+    - debug:
+        msg: "{{ inventory_hostname }}"
+      when: '"routers" in group_names '
+
+    - set_fact:
+        my_var: "{{ my_var|default({}) | combine({'hostname': inventory_hostname}) }}"
+
+    - set_fact:
+        my_var: "{{ my_var | combine({'private_ip': 'xyz', 'name': 'blah'}) }}"
+
+    - debug: var=my_var

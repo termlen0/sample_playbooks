@@ -1,0 +1,74 @@
+---
+
+- name: Lab 5 - Create application
+  connection: local
+  gather_facts: no
+  hosts: bigip
+
+  vars:
+    servers:
+      - { name: ajay-Server1, address: "172.16.10.100" }
+      - { name: ajay-Server2, address: "172.16.10.101" }
+    rest:
+      server: "{{ ansible_host }}"
+      user: admin
+      password: ansible123
+      validate_certs: no
+      transport: rest
+      server_port: 8443
+
+
+  tasks:
+     - name: Create nodes using with_items
+       bigip_node:
+          provider: "{{rest}}"
+          name: "{{ item.name }}"
+          address: "{{ item.address }}"
+       delegate_to: localhost
+       with_items: "{{ servers }}"
+
+     - name: Create pool
+       bigip_pool:
+          provider: "{{rest}}"
+          name: ajay_pool
+       delegate_to: localhost
+
+     - name: Create pool members
+       bigip_pool_member:
+          provider: "{{rest}}"
+          pool: ajay_pool
+          name: "{{ item.name }}"
+          port: 80
+       delegate_to: localhost
+       with_items: "{{ servers }}"
+
+
+     # - name: Install maintenance page iRule
+     #   bigip_irule:
+     #      provider: "{{rest}}"
+     #      module: ltm
+     #      name: maint_pg_irule
+     #      content: "{{ lookup('file', '../tmp/maint_pg.irule') }}"
+     #   delegate_to: localhost
+
+     # - name: Create virtual server
+     #   bigip_virtual_server:
+     #     provider: "{{rest}}"
+     #     partition: Common
+     #     name: red_vs
+     #     destination: "172.16.20.120"
+     #     port: "80"
+     #     all_profiles:
+     #       - http
+     #     all_rules:
+     #       - maint_pg_irule
+     #   delegate_to: localhost
+
+
+     - name: DELETE POOL
+       bigip_pool:
+         provider: "{{ rest }}"
+         name: ajay_pool
+         state: absent
+       delegate_to: localhost
+       tags: remove

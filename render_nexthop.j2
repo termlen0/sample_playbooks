@@ -1,0 +1,13 @@
+{
+"problem_id": "incident",
+"short_description": "Test Next Hop Issues",
+"description": "Router2 incident",
+"comments": " {% for route in route_facts %} Network: {{ route.NETWORK }}\n Next hop interface: {{ route.NEXTHOP_IF }}\n Next hop IP: {{ route.NEXTHOP_IP }}\n ---\n\n {% endfor %} "
+
+}
+
+
+
+
+
+

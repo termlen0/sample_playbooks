@@ -1,0 +1,20 @@
+---
+- name: List loop test
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+  - name: Include vars
+    include_vars:
+      file: vars.json
+
+  # - debug:
+  #     msg: "{{ interfaces.0.name }} , {{ interfaces.0.subints.1.name }}"
+  #   loop: "{{ interfaces | product(interfaces.0.subints) | list }}"
+
+
+  - name: DISPLAY
+    debug:
+      msg: "{{ item.0.name }} : {{ item.1.name }}"
+    loop: "{{ interfaces | subelements('subints') }}"

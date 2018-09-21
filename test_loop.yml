@@ -1,0 +1,229 @@
+---
+
+- name: BUILD DATA
+  connection: local
+  gather_facts: no
+  hosts: localhost
+
+  vars:
+    "route_facts": [
+                {
+                    "DISTANCE": "1",
+                    "MASK": "0",
+                    "METRIC": "0",
+                    "NETWORK": "0.0.0.0",
+                    "NEXTHOP_IF": "GigabitEthernet1",
+                    "NEXTHOP_IP": "172.16.0.1",
+                    "PROTOCOL": "S",
+                    "TYPE": "",
+                    "UPTIME": ""
+                },
+                {
+                    "DISTANCE": "",
+                    "MASK": "24",
+                    "METRIC": "",
+                    "NETWORK": "10.1.1.0",
+                    "NEXTHOP_IF": "Loopback1",
+                    "NEXTHOP_IP": "",
+                    "PROTOCOL": "C",
+                    "TYPE": "",
+                    "UPTIME": ""
+                },
+                {
+                    "DISTANCE": "",
+                    "MASK": "32",
+                    "METRIC": "",
+                    "NETWORK": "10.1.1.101",
+                    "NEXTHOP_IF": "Loopback1",
+                    "NEXTHOP_IP": "",
+                    "PROTOCOL": "L",
+                    "TYPE": "",
+                    "UPTIME": ""
+                },
+                {
+                    "DISTANCE": "20",
+                    "MASK": "24",
+                    "METRIC": "0",
+                    "NETWORK": "10.2.2.0",
+                    "NEXTHOP_IF": "",
+                    "NEXTHOP_IP": "10.200.200.2",
+                    "PROTOCOL": "B",
+                    "TYPE": "",
+                    "UPTIME": "22:35:34"
+                },
+                {
+                    "DISTANCE": "110",
+                    "MASK": "32",
+                    "METRIC": "1001",
+                    "NETWORK": "10.3.3.103",
+                    "NEXTHOP_IF": "Tunnel0",
+                    "NEXTHOP_IP": "10.100.100.3",
+                    "PROTOCOL": "O",
+                    "TYPE": "",
+                    "UPTIME": "23:13:17"
+                },
+                {
+                    "DISTANCE": "20",
+                    "MASK": "32",
+                    "METRIC": "1001",
+                    "NETWORK": "10.4.4.104",
+                    "NEXTHOP_IF": "",
+                    "NEXTHOP_IP": "10.200.200.2",
+                    "PROTOCOL": "B",
+                    "TYPE": "",
+                    "UPTIME": "22:35:34"
+                },
+                {
+                    "DISTANCE": "",
+                    "MASK": "24",
+                    "METRIC": "",
+                    "NETWORK": "10.100.100.0",
+                    "NEXTHOP_IF": "Tunnel0",
+                    "NEXTHOP_IP": "",
+                    "PROTOCOL": "C",
+                    "TYPE": "",
+                    "UPTIME": ""
+                },
+                {
+                    "DISTANCE": "",
+                    "MASK": "32",
+                    "METRIC": "",
+                    "NETWORK": "10.100.100.1",
+                    "NEXTHOP_IF": "Tunnel0",
+                    "NEXTHOP_IP": "",
+                    "PROTOCOL": "L",
+                    "TYPE": "",
+                    "UPTIME": ""
+                },
+                {
+                    "DISTANCE": "20",
+                    "MASK": "24",
+                    "METRIC": "0",
+                    "NETWORK": "10.101.101.0",
+                    "NEXTHOP_IF": "",
+                    "NEXTHOP_IP": "10.200.200.2",
+                    "PROTOCOL": "B",
+                    "TYPE": "",
+                    "UPTIME": "22:35:34"
+                },
+                {
+                    "DISTANCE": "",
+                    "MASK": "24",
+                    "METRIC": "",
+                    "NETWORK": "10.200.200.0",
+                    "NEXTHOP_IF": "Tunnel1",
+                    "NEXTHOP_IP": "",
+                    "PROTOCOL": "C",
+                    "TYPE": "",
+                    "UPTIME": ""
+                },
+                {
+                    "DISTANCE": "",
+                    "MASK": "32",
+                    "METRIC": "",
+                    "NETWORK": "10.200.200.1",
+                    "NEXTHOP_IF": "Tunnel1",
+                    "NEXTHOP_IP": "",
+                    "PROTOCOL": "L",
+                    "TYPE": "",
+                    "UPTIME": ""
+                },
+                {
+                    "DISTANCE": "",
+                    "MASK": "16",
+                    "METRIC": "",
+                    "NETWORK": "172.16.0.0",
+                    "NEXTHOP_IF": "GigabitEthernet1",
+                    "NEXTHOP_IP": "",
+                    "PROTOCOL": "C",
+                    "TYPE": "",
+                    "UPTIME": ""
+                },
+                {
+                    "DISTANCE": "",
+                    "MASK": "32",
+                    "METRIC": "",
+                    "NETWORK": "172.16.200.4",
+                    "NEXTHOP_IF": "GigabitEthernet1",
+                    "NEXTHOP_IP": "",
+                    "PROTOCOL": "L",
+                    "TYPE": "",
+                    "UPTIME": ""
+                },
+                {
+                    "DISTANCE": "20",
+                    "MASK": "16",
+                    "METRIC": "0",
+                    "NETWORK": "172.17.0.0",
+                    "NEXTHOP_IF": "",
+                    "NEXTHOP_IP": "10.200.200.2",
+                    "PROTOCOL": "B",
+                    "TYPE": "",
+                    "UPTIME": "22:35:34"
+                },
+                {
+                    "DISTANCE": "",
+                    "MASK": "24",
+                    "METRIC": "",
+                    "NETWORK": "192.168.1.0",
+                    "NEXTHOP_IF": "Loopback0",
+                    "NEXTHOP_IP": "",
+                    "PROTOCOL": "C",
+                    "TYPE": "",
+                    "UPTIME": ""
+                },
+                {
+                    "DISTANCE": "",
+                    "MASK": "32",
+                    "METRIC": "",
+                    "NETWORK": "192.168.1.101",
+                    "NEXTHOP_IF": "Loopback0",
+                    "NEXTHOP_IP": "",
+                    "PROTOCOL": "L",
+                    "TYPE": "",
+                    "UPTIME": ""
+                },
+                {
+                    "DISTANCE": "20",
+                    "MASK": "24",
+                    "METRIC": "0",
+                    "NETWORK": "192.168.2.0",
+                    "NEXTHOP_IF": "",
+                    "NEXTHOP_IP": "10.200.200.2",
+                    "PROTOCOL": "B",
+                    "TYPE": "",
+                    "UPTIME": "22:35:34"
+                },
+                {
+                    "DISTANCE": "110",
+                    "MASK": "32",
+                    "METRIC": "1001",
+                    "NETWORK": "192.168.3.103",
+                    "NEXTHOP_IF": "Tunnel0",
+                    "NEXTHOP_IP": "10.100.100.3",
+                    "PROTOCOL": "O",
+                    "TYPE": "",
+                    "UPTIME": "23:13:17"
+                }
+            ]
+
+
+
+
+  tasks:
+
+    - debug:
+        msg: " {{ item.NETWORK }}"
+      with_items: "{{ route_facts }}"
+
+    - name: RENDER REPORT
+      template:
+        src: route_info.j2
+        dest: "./route_reports/route_report_{{ item.NETWORK }}.md"
+      with_items: "{{ route_facts }}"
+      ignore_failures: yes
+
+    - name: RENDER FINAL
+      assemble:
+        src: ./route_reports/
+        dest: ./final_report.md

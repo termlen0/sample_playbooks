@@ -1,0 +1,30 @@
+Service-policy (queuing) input:   default-8e-4q8q-in-policy 
+    SNMP Policy Index:  301990561
+
+    Class-map (queuing):   8e-4q8q-in-q1 (match-any)
+      queue-limit percent 10 
+      bandwidth percent 49 
+      queue dropped pkts : 0 
+      queue dropped bytes : 0 
+      queue transmit pkts: 92850762  queue transmit bytes: 68223827662
+
+    Class-map (queuing):   8e-4q8q-in-q-default (match-any)
+      queue-limit percent 88 
+      bandwidth percent 49 
+      queue dropped pkts : 0 
+      queue dropped bytes : 0 
+      queue transmit pkts: 93728569382  queue transmit bytes: 64959078635709
+
+    Class-map (queuing):   8e-4q8q-in-q3 (match-any)
+      queue-limit percent 1 
+      bandwidth percent 1 
+      queue dropped pkts : 0 
+      queue dropped bytes : 0 
+      queue transmit pkts: 0  queue transmit bytes: 0
+
+    Class-map (queuing):   8e-4q8q-in-q4 (match-any)
+      queue-limit percent 1 
+      bandwidth percent 1 
+      queue dropped pkts : 0 
+      queue dropped bytes : 0 
+      queue transmit pkts: 0  queue transmit bytes: 0

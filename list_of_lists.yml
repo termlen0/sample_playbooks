@@ -1,0 +1,17 @@
+---
+- name: ITERATE OVER A LIST OF LISTS
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+
+    outer_list:
+      - [ [1,2], [3,4,5], [10,20,30] ]
+      - [ [a,b], [c,d] ]
+
+
+  tasks:
+
+    - debug: var=item
+      with_list: "{{ outer_list }}"

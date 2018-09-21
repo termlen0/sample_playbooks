@@ -1,0 +1,17 @@
+---
+- name: DOES SETFACT OVERRIDE USER VAR?
+  hosts: localhost
+  gather_facts: no
+  connection: local
+
+  vars:
+    env: dev
+
+  tasks:
+
+    - name: TRY AND OVERRIDE USER INPUT
+      set_fact:
+        newvar : success
+      when: 'env == "full" or env == "test"'
+
+    - debug: var=newvar

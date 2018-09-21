@@ -1,0 +1,25 @@
+---
+- name: TEST COMMAND PARSERS
+  hosts: localhost
+  gather_facts: no
+  connection: local
+
+
+  vars:
+    ansible_network_os: iosxr
+
+  roles:
+    - ansible-network.network-engine
+
+  tasks:
+
+    # - include_role:
+    #     name: ansible-network.network-engine
+
+    - name: TEST THE PARSER
+      command_parser:
+        file: ./cdp_parser.yml
+        content: "{{ lookup('file', './cdp_nei.raw') }}"
+      register: output
+
+    - debug: var=output

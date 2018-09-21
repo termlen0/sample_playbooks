@@ -1,0 +1,25 @@
+---
+
+- name: RECONCILIATION PLAYBOOK
+  hosts: localhost
+  gather_facts: no
+  connection: local
+
+  vars_prompt:
+    - prompt: "Would you like to sync device configuration to the SOT (yes/no)"
+      name: sync
+      private: no
+    - prompt: "Would you like to sync SOT configuration to the devices (yes/no)"
+      name: sync_to_devices
+      private: no
+
+
+  tasks:
+    - debug:
+        var: sync_to_sot
+      mutually_exclusive:
+        - sync_to_sot
+        - sync_to_devices
+      required_one_of:
+        - sync_to_sot
+        - sync_to_devices

@@ -1,0 +1,25 @@
+---
+- name: TEST INDEXED ITEMS
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+    list1:
+      - 100
+      - 200
+      - 300
+    list2:
+      - 101
+      - 201
+      - 301
+
+
+  tasks:
+
+    - name: DISPLAY
+      debug:
+        msg: "{{ item.0 }} and {{ item.1 }}"
+      with_indexed_items:
+        - "{{ list1 }}"
+        - "{{ list2 }}"

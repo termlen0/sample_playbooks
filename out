@@ -1,0 +1,214 @@
+ansible-playbook 2.7.0.dev0
+  config file = /working/3.6_dev_container/playbooks/ansible.cfg
+  configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/local/lib/python3.6/site-packages/ansible
+  executable location = /usr/local/bin/ansible-playbook
+  python version = 3.6.1 (default, Jun 28 2017, 21:57:03) [GCC 5.3.0]
+Using /working/3.6_dev_container/playbooks/ansible.cfg as config file
+
+PLAYBOOK: test_register.yaml *********************************************************************************************************************
+1 plays in test_register.yaml
+
+PLAY [localhost] *********************************************************************************************************************************
+META: ran handlers
+
+TASK [command] ***********************************************************************************************************************************
+task path: /working/3.6_dev_container/playbooks/test_register.yaml:14
+changed: [localhost] => (item=aa) => {"changed": true, "cmd": ["echo", "aa"], "delta": "0:00:00.001064", "end": "2018-08-23 20:47:56.585849", "item": "aa", "rc": 0, "start": "2018-08-23 20:47:56.584785", "stderr": "", "stderr_lines": [], "stdout": "aa", "stdout_lines": ["aa"]}
+changed: [localhost] => (item=bb) => {"changed": true, "cmd": ["echo", "bb"], "delta": "0:00:00.001060", "end": "2018-08-23 20:47:56.758015", "item": "bb", "rc": 0, "start": "2018-08-23 20:47:56.756955", "stderr": "", "stderr_lines": [], "stdout": "bb", "stdout_lines": ["bb"]}
+changed: [localhost] => (item=cc) => {"changed": true, "cmd": ["echo", "cc"], "delta": "0:00:00.001053", "end": "2018-08-23 20:47:56.930643", "item": "cc", "rc": 0, "start": "2018-08-23 20:47:56.929590", "stderr": "", "stderr_lines": [], "stdout": "cc", "stdout_lines": ["cc"]}
+changed: [localhost] => (item=dd) => {"changed": true, "cmd": ["echo", "dd"], "delta": "0:00:00.001165", "end": "2018-08-23 20:47:57.105681", "item": "dd", "rc": 0, "start": "2018-08-23 20:47:57.104516", "stderr": "", "stderr_lines": [], "stdout": "dd", "stdout_lines": ["dd"]}
+
+TASK [debug] *************************************************************************************************************************************
+task path: /working/3.6_dev_container/playbooks/test_register.yaml:18
+ok: [localhost] => {
+    "hostvars[inventory_hostname]": {
+        "ansible_check_mode": false,
+        "ansible_connection": "local",
+        "ansible_diff_mode": false,
+        "ansible_facts": {},
+        "ansible_forks": 50,
+        "ansible_inventory_sources": [
+            "/working/3.6_dev_container/playbooks/hosts"
+        ],
+        "ansible_playbook_python": "/usr/local/bin/python",
+        "ansible_python_interpreter": "/usr/local/bin/python",
+        "ansible_run_tags": [
+            "all"
+        ],
+        "ansible_skip_tags": [],
+        "ansible_verbosity": 2,
+        "ansible_version": {
+            "full": "2.7.0.dev0",
+            "major": 2,
+            "minor": 7,
+            "revision": 0,
+            "string": "2.7.0.dev0"
+        },
+        "group_names": [],
+        "groups": {
+            "all": [],
+            "ungrouped": []
+        },
+        "inventory_hostname": "localhost",
+        "inventory_hostname_short": "localhost",
+        "omit": "__omit_place_holder__288d9e0833593751d0c41e3de97c559591ba623c",
+        "playbook_dir": "/working/3.6_dev_container/playbooks",
+        "{{ item }}_variabl": {
+            "changed": true,
+            "msg": "All items completed",
+            "results": [
+                {
+                    "_ansible_ignore_errors": null,
+                    "_ansible_item_result": true,
+                    "_ansible_no_log": false,
+                    "_ansible_parsed": true,
+                    "changed": true,
+                    "cmd": [
+                        "echo",
+                        "aa"
+                    ],
+                    "delta": "0:00:00.001064",
+                    "end": "2018-08-23 20:47:56.585849",
+                    "failed": false,
+                    "invocation": {
+                        "module_args": {
+                            "_raw_params": "echo aa",
+                            "_uses_shell": false,
+                            "argv": null,
+                            "chdir": null,
+                            "creates": null,
+                            "executable": null,
+                            "removes": null,
+                            "stdin": null,
+                            "warn": true
+                        }
+                    },
+                    "item": "aa",
+                    "rc": 0,
+                    "start": "2018-08-23 20:47:56.584785",
+                    "stderr": "",
+                    "stderr_lines": [],
+                    "stdout": "aa",
+                    "stdout_lines": [
+                        "aa"
+                    ]
+                },
+                {
+                    "_ansible_ignore_errors": null,
+                    "_ansible_item_result": true,
+                    "_ansible_no_log": false,
+                    "_ansible_parsed": true,
+                    "changed": true,
+                    "cmd": [
+                        "echo",
+                        "bb"
+                    ],
+                    "delta": "0:00:00.001060",
+                    "end": "2018-08-23 20:47:56.758015",
+                    "failed": false,
+                    "invocation": {
+                        "module_args": {
+                            "_raw_params": "echo bb",
+                            "_uses_shell": false,
+                            "argv": null,
+                            "chdir": null,
+                            "creates": null,
+                            "executable": null,
+                            "removes": null,
+                            "stdin": null,
+                            "warn": true
+                        }
+                    },
+                    "item": "bb",
+                    "rc": 0,
+                    "start": "2018-08-23 20:47:56.756955",
+                    "stderr": "",
+                    "stderr_lines": [],
+                    "stdout": "bb",
+                    "stdout_lines": [
+                        "bb"
+                    ]
+                },
+                {
+                    "_ansible_ignore_errors": null,
+                    "_ansible_item_result": true,
+                    "_ansible_no_log": false,
+                    "_ansible_parsed": true,
+                    "changed": true,
+                    "cmd": [
+                        "echo",
+                        "cc"
+                    ],
+                    "delta": "0:00:00.001053",
+                    "end": "2018-08-23 20:47:56.930643",
+                    "failed": false,
+                    "invocation": {
+                        "module_args": {
+                            "_raw_params": "echo cc",
+                            "_uses_shell": false,
+                            "argv": null,
+                            "chdir": null,
+                            "creates": null,
+                            "executable": null,
+                            "removes": null,
+                            "stdin": null,
+                            "warn": true
+                        }
+                    },
+                    "item": "cc",
+                    "rc": 0,
+                    "start": "2018-08-23 20:47:56.929590",
+                    "stderr": "",
+                    "stderr_lines": [],
+                    "stdout": "cc",
+                    "stdout_lines": [
+                        "cc"
+                    ]
+                },
+                {
+                    "_ansible_ignore_errors": null,
+                    "_ansible_item_result": true,
+                    "_ansible_no_log": false,
+                    "_ansible_parsed": true,
+                    "changed": true,
+                    "cmd": [
+                        "echo",
+                        "dd"
+                    ],
+                    "delta": "0:00:00.001165",
+                    "end": "2018-08-23 20:47:57.105681",
+                    "failed": false,
+                    "invocation": {
+                        "module_args": {
+                            "_raw_params": "echo dd",
+                            "_uses_shell": false,
+                            "argv": null,
+                            "chdir": null,
+                            "creates": null,
+                            "executable": null,
+                            "removes": null,
+                            "stdin": null,
+                            "warn": true
+                        }
+                    },
+                    "item": "dd",
+                    "rc": 0,
+                    "start": "2018-08-23 20:47:57.104516",
+                    "stderr": "",
+                    "stderr_lines": [],
+                    "stdout": "dd",
+                    "stdout_lines": [
+                        "dd"
+                    ]
+                }
+            ]
+        }
+    }
+}
+META: ran handlers
+META: ran handlers
+
+PLAY RECAP ***************************************************************************************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0   
+

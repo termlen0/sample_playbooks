@@ -1,0 +1,12 @@
+---
+- name: TEST ENABLE
+  hosts: rtr1
+  connection: network_cli
+  gather_facts: no
+
+  tasks:
+
+    - name: UPDATE HOSTNAME
+      ios_config:
+        commands:
+          - hostname rtr1

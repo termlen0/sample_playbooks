@@ -1,0 +1,13 @@
+- name: KICKOFF THE PROVISIONER
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+
+
+  tasks:
+
+    - name: CLONE THE PROVISIONER REPO
+      git:
+        repo: https://github.com/termlen0/demo
+        dest: ./provisioner

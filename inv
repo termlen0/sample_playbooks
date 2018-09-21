@@ -1,0 +1,2 @@
+[bigip]
+bigip-a ansible_host=13.59.13.2

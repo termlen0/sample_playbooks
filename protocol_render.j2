@@ -1,0 +1,38 @@
+
+
+{% for route in route_facts %}
+  {% if route.PROTOCOL == 'S' %}
+    {% set protocol_info = protocol_info | combine( { 'protocol': 'static' } ) %}
+  {% elif route.PROTOCOL == 'B' %}
+    {% set protocol_info = protocol_info | combine( { 'protocol': 'BGP' } ) %}
+  {% else %}
+    {% set protocol_info = protocol_info | combine( { 'protocol': 'TEMP' } ) %}
+  {% endif %}
+    {% set protocol_info = protocol_info | combine( { 'network' : route.NETWORK } ) %}
+    {% set protocol_info = protocol_info | combine( { 'nexthop_intf' : route.NEXTHOP_IF } ) %}
+    {% set protocol_info = protocol_info | combine( { 'nexthop_ip' : route.NEXTHOP_IP } ) %}
+  {# {% set route_info = route_info | combine( { route.NETWORK : protocol_info } ) %} #}
+  {% set x = route_info.__setitem__(route.NETWORK, protocol_info) %}
+
+{% endfor %}
+
+{{ route_info }}
+
+{% for nw, nw_dict in route_info.items() %}
+
+  {% if nw_dict.protocol == 'static' %} 
+    STATIC ROUTES: 
+    ------------- 
+    Network: {{ nw_dict.network }}
+    Next Hop IP: {{ nw_dict.nexthop_ip }}
+    Next Hop Interface: {{ nw_dict.nexthop_intf }}
+  {% elif nw_dict.protocol == 'BGP' %} 
+    BGP ROUTES: 
+    ---------- 
+    Network: {{ nw_dict.network }}
+    Next Hop IP: {{ nw_dict.nexthop_ip }}
+    Next Hop Interface: {{ nw_dict.nexthop_intf }}
+  {% endif %} 
+{% endfor %}
+
+

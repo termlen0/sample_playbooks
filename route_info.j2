@@ -1,0 +1,18 @@
+
+
+{% if item.PROTOCOL == 'S' %}
+STATIC:
+------
+Network: {{ item.NETWORK }}
+Network interface: {{ item.NEXTHOP_IF}}
+Network IP : {{ item.NEXTHOP_IP }}
+{% elif item.PROTOCOL == 'B' %}
+BGP:
+---
+Network: {{ item.NETWORK }}
+Network interface: {{ item.NEXTHOP_IF }}
+Network IP : {{ item.NEXTHOP_IP }}
+  
+{% endif %}  
+
+

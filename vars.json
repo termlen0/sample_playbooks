@@ -1,0 +1,19 @@
+{
+  "interfaces": [
+    {
+      "name": "Int1",
+      "subints": [
+        { "name": "Int1.1" },
+        { "name": "Int1.2" }
+      ]
+    },
+    {
+      "name": "Int2",
+      "subints": [
+        { "name": "Int2.1" },
+        { "name": "Int2.2" },
+        { "name": "Int2.3" }
+      ]
+    }
+  ]
+}
